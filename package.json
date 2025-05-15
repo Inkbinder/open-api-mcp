@@ -1,0 +1,53 @@
+{
+  "name": "@inkbinder/open-api-mcp",
+  "version": "1.0.0",
+  "description": "An MCP Server that exposes tools based on an OpenAPI spec",
+  "bin": {
+    "@inkbinder/open-api-mcp": "./dist/stdio.mjs",
+    "sse-stateless": "./dist/sse-stateless.mjs",
+    "sse-stateful": "./dist/sse-stateful.mjs"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "./sse-stateful": "./dist/sse-stateful.mjs",
+    "./sse-stateless": "./dist/sse-stateless.mjs",
+    "./stdio": "./dist/stdio.mjs"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "pkgroll --minify",
+    "stdio": "tsx src/stdio.ts",
+    "lint": "lintroll --node --cache --ignore-pattern 'docs/*.md' .",
+    "type-check": "tsc",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Inkbinder/open-api-mcp.git"
+  },
+  "keywords": [
+    "mcp",
+    "openapi",
+    "typescript"
+  ],
+  "author": "Gareth Walkersmith",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Inkbinder/open-api-mcp/issues"
+  },
+  "homepage": "https://github.com/Inkbinder/open-api-mcp#readme",
+  "devDependencies": {
+    "@tsconfig/node22": "^22.0.0",
+    "lintroll": "^1.15.0",
+    "pkgroll": "^2.12.2",
+    "tsx": "^4.19.4"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.11.2",
+    "@readme/openapi-parser": "^4.0.0",
+    "@types/express": "^5.0.1",
+    "express": "^5.1.0"
+  }
+}
